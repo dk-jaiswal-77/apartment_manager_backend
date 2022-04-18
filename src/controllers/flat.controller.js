@@ -17,6 +17,16 @@ router.post("/", async (req, res) => {
     }
 });
 
+// patch // updating flat // by :id
+router.patch("/:id", async(req, res) => {
+    try{
+        await Flat.findByIdAndUpdate(req.params.id, req.body);
+        res.status(200).send("updated successfully!");
+    }catch(error){
+        console.log(error);
+    }
+});
+
 // get all the flats details
 router.get("/", async (req, res) => {
     try{
