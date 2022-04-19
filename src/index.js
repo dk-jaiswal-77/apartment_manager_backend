@@ -8,6 +8,9 @@ connectToDB();
 // creating express app
 const app = express();
 
+// port 
+const port = process.env.PORT || 5000;
+
 // global middleware
 app.use(express.json());
 
@@ -27,4 +30,4 @@ app.use("/residents", residentController);
 
 
 // listening to port 3007
-app.listen(3007);
+app.listen(port, () => console.log(`listening on port ${port}`));
